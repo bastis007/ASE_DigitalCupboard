@@ -1,5 +1,6 @@
 package com.springboot.digitalCupboard.plugins;
 
+import com.springboot.digitalCupboard.domain.exceptions.GarmentNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
@@ -20,7 +21,6 @@ import com.springboot.digitalCupboard.adapters.mappers.GarmentToRepresentationMa
 import com.springboot.digitalCupboard.adapters.mappers.RepresentationToGarmentMapper;
 import com.springboot.digitalCupboard.application.GarmentService;
 import com.springboot.digitalCupboard.domain.Garment;
-import com.springboot.digitalCupboard.domain.Exceptions.GarmentNotFoundException;
 
 import java.util.List;
 import java.util.UUID;
@@ -60,10 +60,10 @@ public class GarmentController {
     @PostMapping("/garment")
     public ResponseEntity<?> newGarment(@RequestBody GarmentRepresentation newGarment) {
         String id = newGarment.getId() == null ||
-        		newGarment.getId().isBlank() ||
-        		newGarment.getId().equals("undefined") ?
+                newGarment.getId().isBlank() ||
+                newGarment.getId().equals("undefined") ?
                 UUID.randomUUID().toString() :
-                	newGarment.getId();
+                newGarment.getId();
         newGarment.setId(id);
         Garment saved = garmentService.save(toGarment.apply(newGarment));
         EntityModel<GarmentRepresentation> entityModel = assembler.toModel(toRepresentation.apply(saved));

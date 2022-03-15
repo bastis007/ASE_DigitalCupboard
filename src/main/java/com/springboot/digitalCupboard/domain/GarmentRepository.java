@@ -5,15 +5,13 @@ import java.util.Optional;
 
 import org.springframework.data.repository.CrudRepository;
 
-public interface GarmentRepository{
+public interface GarmentRepository {
 
-	List<Garment> findAll();
+    List<Garment> findAll();
 
-	Garment save(Garment garment);
-    
+    Garment save(Garment garment);
+
     Optional<Garment> findById(String id);
-    
-    Garment deleteById(String id);
 
-	
+    Garment deleteById(String id);
 }

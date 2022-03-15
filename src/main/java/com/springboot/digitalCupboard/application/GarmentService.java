@@ -13,7 +13,7 @@ import com.springboot.digitalCupboard.domain.GarmentRepository;
 
 @Service
 public class GarmentService {
-	private final GarmentRepository garmentRepository;
+    private final GarmentRepository garmentRepository;
 
     @Autowired
     public GarmentService(GarmentRepository garmentRepository) {

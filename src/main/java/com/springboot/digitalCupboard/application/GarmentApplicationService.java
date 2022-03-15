@@ -22,7 +22,7 @@ public class GarmentApplicationService {
     public List<Garment> findAll() {
         return this.garmentRepository.findAll();
     }
-    
+
     public Optional<Garment> findById(String id) {
         return garmentRepository.findById(id);
     }

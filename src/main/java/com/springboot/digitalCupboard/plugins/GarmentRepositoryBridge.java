@@ -36,6 +36,6 @@ public class GarmentRepositoryBridge implements GarmentRepository {
     @Override
     public Garment deleteById(String id) {
         springDataGarmentRepository.deleteById(id);
-		return null;
+        return null;
     }
 }

@@ -9,11 +9,11 @@ import com.springboot.digitalCupboard.domain.Garment;
 
 @Component
 public class GarmentToRepresentationMapper implements Function<Garment, GarmentRepresentation> {
-	
+
     @Override
     public GarmentRepresentation apply(Garment garment) {
         return new GarmentRepresentation(
-        		garment.getId(),
+                garment.getId(),
                 garment.getType(),
                 garment.getSize(),
                 garment.getColour());
