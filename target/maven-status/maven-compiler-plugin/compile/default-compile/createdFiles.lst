@@ -1,0 +1,15 @@
+com\springboot\digitalCupboard\adapters\mappers\RepresentationToGarmentMapper.class
+com\springboot\digitalCupboard\application\GarmentApplicationService.class
+com\springboot\digitalCupboard\domain\Exceptions\GarmentNotFoundException.class
+com\springboot\digitalCupboard\plugins\GarmentModelAssembler.class
+com\springboot\digitalCupboard\plugins\GarmentRepositoryBridge.class
+com\springboot\digitalCupboard\plugins\CorsConfiguration$1.class
+com\springboot\digitalCupboard\adapters\GarmentRepresentation.class
+com\springboot\digitalCupboard\plugins\CorsConfiguration.class
+com\springboot\digitalCupboard\plugins\SpringDataGarmentRepository.class
+com\springboot\digitalCupboard\adapters\mappers\GarmentToRepresentationMapper.class
+com\springboot\digitalCupboard\application\GarmentService.class
+com\springboot\digitalCupboard\domain\GarmentRepository.class
+com\springboot\digitalCupboard\plugins\GarmentController.class
+com\springboot\digitalCupboard\plugins\DigitalCupboardApplication.class
+com\springboot\digitalCupboard\domain\Garment.class

@@ -1,0 +1,14 @@
+C:\Users\z0041r2a\Documents\OneDrive - Siemens AG\2. DHBW\6. Theoriephase (14.02.22-15.05.22)\ASE\digitalCupboard\src\main\java\com\springboot\digitalCupboard\plugins\CorsConfiguration.java
+C:\Users\z0041r2a\Documents\OneDrive - Siemens AG\2. DHBW\6. Theoriephase (14.02.22-15.05.22)\ASE\digitalCupboard\src\main\java\com\springboot\digitalCupboard\domain\Garment.java
+C:\Users\z0041r2a\Documents\OneDrive - Siemens AG\2. DHBW\6. Theoriephase (14.02.22-15.05.22)\ASE\digitalCupboard\src\main\java\com\springboot\digitalCupboard\plugins\SpringDataGarmentRepository.java
+C:\Users\z0041r2a\Documents\OneDrive - Siemens AG\2. DHBW\6. Theoriephase (14.02.22-15.05.22)\ASE\digitalCupboard\src\main\java\com\springboot\digitalCupboard\plugins\GarmentRepositoryBridge.java
+C:\Users\z0041r2a\Documents\OneDrive - Siemens AG\2. DHBW\6. Theoriephase (14.02.22-15.05.22)\ASE\digitalCupboard\src\main\java\com\springboot\digitalCupboard\plugins\GarmentController.java
+C:\Users\z0041r2a\Documents\OneDrive - Siemens AG\2. DHBW\6. Theoriephase (14.02.22-15.05.22)\ASE\digitalCupboard\src\main\java\com\springboot\digitalCupboard\domain\GarmentRepository.java
+C:\Users\z0041r2a\Documents\OneDrive - Siemens AG\2. DHBW\6. Theoriephase (14.02.22-15.05.22)\ASE\digitalCupboard\src\main\java\com\springboot\digitalCupboard\adapters\GarmentRepresentation.java
+C:\Users\z0041r2a\Documents\OneDrive - Siemens AG\2. DHBW\6. Theoriephase (14.02.22-15.05.22)\ASE\digitalCupboard\src\main\java\com\springboot\digitalCupboard\domain\Exceptions\GarmentNotFoundException.java
+C:\Users\z0041r2a\Documents\OneDrive - Siemens AG\2. DHBW\6. Theoriephase (14.02.22-15.05.22)\ASE\digitalCupboard\src\main\java\com\springboot\digitalCupboard\application\GarmentService.java
+C:\Users\z0041r2a\Documents\OneDrive - Siemens AG\2. DHBW\6. Theoriephase (14.02.22-15.05.22)\ASE\digitalCupboard\src\main\java\com\springboot\digitalCupboard\adapters\mappers\RepresentationToGarmentMapper.java
+C:\Users\z0041r2a\Documents\OneDrive - Siemens AG\2. DHBW\6. Theoriephase (14.02.22-15.05.22)\ASE\digitalCupboard\src\main\java\com\springboot\digitalCupboard\application\GarmentApplicationService.java
+C:\Users\z0041r2a\Documents\OneDrive - Siemens AG\2. DHBW\6. Theoriephase (14.02.22-15.05.22)\ASE\digitalCupboard\src\main\java\com\springboot\digitalCupboard\plugins\GarmentModelAssembler.java
+C:\Users\z0041r2a\Documents\OneDrive - Siemens AG\2. DHBW\6. Theoriephase (14.02.22-15.05.22)\ASE\digitalCupboard\src\main\java\com\springboot\digitalCupboard\plugins\DigitalCupboardApplication.java
+C:\Users\z0041r2a\Documents\OneDrive - Siemens AG\2. DHBW\6. Theoriephase (14.02.22-15.05.22)\ASE\digitalCupboard\src\main\java\com\springboot\digitalCupboard\adapters\mappers\GarmentToRepresentationMapper.java
