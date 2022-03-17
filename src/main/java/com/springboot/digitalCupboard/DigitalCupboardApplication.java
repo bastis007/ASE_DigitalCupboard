@@ -2,6 +2,7 @@ package com.springboot.digitalCupboard;
 
 import com.springboot.digitalCupboard.domain.Garment;
 import com.springboot.digitalCupboard.domain.GarmentRepository;
+import com.springboot.digitalCupboard.frontend.CupboardApplicationGUI;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -14,33 +15,21 @@ import java.util.Optional;
 @SpringBootApplication
 public class DigitalCupboardApplication {
 
-    private static final Logger log = LoggerFactory.getLogger(DigitalCupboardApplication.class);
+    //private static final Logger log = LoggerFactory.getLogger(DigitalCupboardApplication.class);
 
     public static void main(String[] args) {
+        new CupboardApplicationGUI();
         SpringApplication.run(DigitalCupboardApplication.class);
     }
 
     @Bean
     public CommandLineRunner demo(GarmentRepository repository) {
         return (args) -> {
-            // save a few customers
             repository.save(new Garment("tshirt1", "T-Shirt", "L", "Green"));
-
-            // fetch all customers
-            log.info("Customers found with findAll():");
-            log.info("-------------------------------");
-            for (Garment garment : repository.findAll()) {
-                log.info(garment.toString());
-            }
-            log.info("");
-
-            // fetch an individual customer by ID
-            Optional<Garment> garment = repository.findById("tshirt1");
-            log.info("Customer found with findById(1L):");
-            log.info("--------------------------------");
-            log.info(garment.toString());
-            log.info("");
-            log.info("");
+            repository.save(new Garment("socks1", "Socks", "44-46", "Black"));
+            repository.save(new Garment("jeans1", "Jeans", "33/35", "Blue"));
+            repository.save(new Garment("hoodie1", "Hoodie", "XL", "Gray"));
+            repository.save(new Garment("underpants1", "Underpants", "L", "Yellow"));
         };
     }
 }
