@@ -1,5 +1,7 @@
 package com.springboot.digitalCupboard.frontend;
 
+import org.yaml.snakeyaml.util.ArrayUtils;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -11,13 +13,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class CupboardApplicationGUI {
-
-    /*private GarmentRepository repository;
-
-    @Autowired
-    public CupboardApplicationGUI(GarmentRepository repository) {
-        this.repository = repository;
-    }*/
 
     JFrame frame;
 
@@ -36,11 +31,8 @@ public class CupboardApplicationGUI {
         retrieveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                try {
-                    getCupboard();
-                } catch (IOException ex) {
-                    ex.printStackTrace();
-                }
+                try {getCupboard();}
+                catch (IOException ex) {ex.printStackTrace();}
             }
         });
         JButton addButton = new JButton("Add Item");
@@ -65,13 +57,6 @@ public class CupboardApplicationGUI {
     }
 
     private String[][] getTableData() {
-        /*GarmentService service = new GarmentService(repository);
-        GarmentToRepresentationMapper toRepresentation = new GarmentToRepresentationMapper();
-        RepresentationToGarmentMapper toGarment = new RepresentationToGarmentMapper();
-        GarmentModelAssembler assembler = new GarmentModelAssembler();
-        GarmentController controller = new GarmentController(service, toRepresentation, toGarment, assembler);
-        controller.all();*/
-
         String[][] data = {{"tshirt1", "T-Shirt", "L", "Green"}, {"socks1", "Socks", "44-46", "Black"}};
         return data;
     }
@@ -88,19 +73,22 @@ public class CupboardApplicationGUI {
         System.out.println("Response Code : " + responseCode);
 
         if (responseCode == HttpURLConnection.HTTP_OK) {
-            BufferedReader inputReader = new BufferedReader(
-                    new InputStreamReader(connection.getInputStream()));
+            BufferedReader inputReader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
             String inputLine;
             StringBuffer response = new StringBuffer();
-
             while ((inputLine = inputReader.readLine()) != null) {
                 response.append(inputLine);
             }
-
             inputReader.close();
-
-            System.out.println(response.toString());
-
+            String tableContent = response.toString();
+            String[] table = tableContent.split("\"id\":");
+            for(int i = 0; i < table.length; i++){
+                String[] tab = table[i].split("\"");
+                String[] arr_new = new String[tab.length-1];
+                for(int j = 0; j < tab.length; j++){
+                    System.out.println(tab[j]);
+                }
+            }
         }
     }
 }
