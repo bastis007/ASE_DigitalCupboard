@@ -18,7 +18,7 @@ public class DigitalCupboardApplication {
 
     //private static final Logger log = LoggerFactory.getLogger(DigitalCupboardApplication.class);
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, InterruptedException {
         new CupboardApplicationGUI();
         SpringApplication.run(DigitalCupboardApplication.class);
     }

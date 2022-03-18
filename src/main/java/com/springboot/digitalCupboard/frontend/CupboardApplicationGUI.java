@@ -1,14 +1,9 @@
 package com.springboot.digitalCupboard.frontend;
 
-import org.yaml.snakeyaml.util.ArrayUtils;
-
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
@@ -16,7 +11,7 @@ public class CupboardApplicationGUI {
 
     JFrame frame;
 
-    public CupboardApplicationGUI() throws IOException {
+    public CupboardApplicationGUI() {
         GraphicsEnvironment graphics = GraphicsEnvironment.getLocalGraphicsEnvironment();
         GraphicsDevice device = graphics.getDefaultScreenDevice();
         frame = new JFrame();
@@ -28,25 +23,23 @@ public class CupboardApplicationGUI {
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new FlowLayout());
         JButton retrieveButton = new JButton("Get Cupboard");
-        retrieveButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try {getCupboard();}
-                catch (IOException ex) {ex.printStackTrace();}
-            }
+        retrieveButton.addActionListener(e -> {
+            try {getCupboardData();}
+            catch (IOException | InterruptedException ex) {ex.printStackTrace();}
         });
         JButton addButton = new JButton("Add Item");
         JButton deleteButton = new JButton("Delete Item");
         buttonPanel.add(retrieveButton);
         buttonPanel.add(addButton);
         buttonPanel.add(deleteButton);
+
         String data[][] = getTableData();
         String columns[] = getTableColumns();
-        JTable table = new JTable(data, columns);
-        table.setBounds(30, 40, 200, 300);
-        JScrollPane scrollPane = new JScrollPane(table);
+        JTable table = new JTable();
+        DefaultTableModel model = new DefaultTableModel(data, columns);
+        table.setModel(model);
         panel.add(buttonPanel, BorderLayout.NORTH);
-        panel.add(scrollPane, BorderLayout.CENTER);
+        panel.add(table, BorderLayout.CENTER);
         frame.add(panel);
         frame.setVisible(true);
     }
@@ -61,19 +54,16 @@ public class CupboardApplicationGUI {
         return data;
     }
 
-    private void getCupboard() throws IOException {
+    private String[][] getCupboardData() throws IOException, InterruptedException {
         String url = "http://localhost:8080/garment/";
         URL urlObj = new URL(url);
         HttpURLConnection connection = (HttpURLConnection) urlObj.openConnection();
-
         connection.setRequestMethod("GET");
-        connection.setRequestProperty("User-Agent", "Mozilla/5.0");
-
-        Integer responseCode = connection.getResponseCode();
+        int responseCode = connection.getResponseCode();
         System.out.println("Response Code : " + responseCode);
-
+        String[][] data = new String[10][4];
         if (responseCode == HttpURLConnection.HTTP_OK) {
-            BufferedReader inputReader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+           BufferedReader inputReader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
             String inputLine;
             StringBuffer response = new StringBuffer();
             while ((inputLine = inputReader.readLine()) != null) {
@@ -82,13 +72,40 @@ public class CupboardApplicationGUI {
             inputReader.close();
             String tableContent = response.toString();
             String[] table = tableContent.split("\"id\":");
-            for(int i = 0; i < table.length; i++){
-                String[] tab = table[i].split("\"");
-                String[] arr_new = new String[tab.length-1];
-                for(int j = 0; j < tab.length; j++){
-                    System.out.println(tab[j]);
+            int l = 0;
+            for (String s : table) {
+                String[] tab = s.split(",\"_links\":");
+                for (int j = 0; j < tab.length; j++) {
+                    if (j % 2 != 0) {
+                        tab[j] = null;
+                    }
+                    if (j + 1 == tab.length) {
+                        tab[j] = null;
+                    }
+                }
+                for (int j = 0; (j + 1) < tab.length; j++) {
+                    if (tab[j] == null && j < tab.length) {
+                        tab[j] = tab[j + 1];
+                    }
+                    //System.out.println(tab[j]);
+                    if (tab[j] == null) {
+                        tab[j] = tab[j - 1];
+                    }
+                    String[] t = tab[j].split(",");
+                    for (int k = 0; k < t.length; k++) {
+                        t[k] = t[k].replace("\"type\":", "");
+                        t[k] = t[k].replace("\"size\":", "");
+                        t[k] = t[k].replace("\"colour\":", "");
+                        data[l][k] = t[k];
+                        System.out.println(data[l][k]);
+
+                        if (k == 3) {
+                            l++;
+                        }
+                    }
                 }
             }
         }
+        return data;
     }
 }
