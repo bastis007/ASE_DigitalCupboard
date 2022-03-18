@@ -2,16 +2,14 @@ package com.springboot.digitalCupboard;
 
 import com.springboot.digitalCupboard.domain.Garment;
 import com.springboot.digitalCupboard.domain.GarmentRepository;
-import com.springboot.digitalCupboard.frontend.CupboardApplicationGUI;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import java.io.IOException;
-import java.util.Optional;
+
 
 @SpringBootApplication
 public class DigitalCupboardApplication {
@@ -19,7 +17,6 @@ public class DigitalCupboardApplication {
     //private static final Logger log = LoggerFactory.getLogger(DigitalCupboardApplication.class);
 
     public static void main(String[] args) throws IOException, InterruptedException {
-        new CupboardApplicationGUI();
         SpringApplication.run(DigitalCupboardApplication.class);
     }
 
