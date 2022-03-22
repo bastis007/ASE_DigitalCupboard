@@ -33,13 +33,6 @@ public class Garment {
 
     protected Garment() {}
 
-    @Override
-    public String toString() {
-        return String.format(
-                "Customer[id=%s, type='%s', size='%s', colour='%s']",
-                id, type, size, colour);
-    }
-
     public String getId() {
         return id;
     }
@@ -56,15 +49,18 @@ public class Garment {
         return colour;
     }
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
     public void setSize(String size) {
         this.size = size;
     }
 
     public void setColour(String colour) {
         this.colour = colour;
+    }
+
+    @Override
+    public String toString() {
+        return String.format(
+                "Customer[id='%s', type='%s', size='%s', colour='%s']",
+                id, type, size, colour);
     }
 }
