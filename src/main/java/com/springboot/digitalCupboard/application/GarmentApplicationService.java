@@ -27,8 +27,8 @@ public class GarmentApplicationService {
         return garmentRepository.findById(id);
     }
 
-    public Garment save(Garment newProdukt) {
-        return garmentRepository.save(newProdukt);
+    public Garment save(Garment newGarment) {
+        return garmentRepository.save(newGarment);
     }
 
     public void deleteById(String id) {
