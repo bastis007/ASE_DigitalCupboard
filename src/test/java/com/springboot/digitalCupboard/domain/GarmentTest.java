@@ -11,14 +11,6 @@ import static org.mockito.Mockito.when;
 
 class GarmentTest {
 
-    @BeforeEach
-    void setUp() {
-    }
-
-    @AfterEach
-    void tearDown() {
-    }
-
     @Test
     void testToString() {
         Garment garment = new Garment("tshirt1", "T-Shirt", "L", "Red");
