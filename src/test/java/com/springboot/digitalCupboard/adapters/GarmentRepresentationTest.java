@@ -3,6 +3,7 @@ package com.springboot.digitalCupboard.adapters;
 import com.springboot.digitalCupboard.domain.Garment;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -10,7 +11,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class GarmentRepresentationTest {
 
     @Test
-    void getId() {
+    @DisplayName("Test GarmentRepresentationGetter(id)")
+    void testGetId() {
         GarmentRepresentation garment = new GarmentRepresentation("tshirt1", "T-Shirt", "L", "Red");
         String expected = "tshirt1";
         String result = garment.getId();
@@ -18,7 +20,8 @@ class GarmentRepresentationTest {
     }
 
     @Test
-    void getType() {
+    @DisplayName("Test GarmentRepresentationGetter(type)")
+    void testGetType() {
         GarmentRepresentation garment = new GarmentRepresentation("tshirt1", "T-Shirt", "L", "Red");
         String expected = "T-Shirt";
         String result = garment.getType();
@@ -26,7 +29,8 @@ class GarmentRepresentationTest {
     }
 
     @Test
-    void getSize() {
+    @DisplayName("Test GarmentRepresentationGetter(size)")
+    void testGetSize() {
         GarmentRepresentation garment = new GarmentRepresentation("tshirt1", "T-Shirt", "L", "Red");
         String expected = "L";
         String result = garment.getSize();
@@ -34,7 +38,8 @@ class GarmentRepresentationTest {
     }
 
     @Test
-    void getColour() {
+    @DisplayName("Test GarmentRepresentationGetter(colour)")
+    void testGetColour() {
         GarmentRepresentation garment = new GarmentRepresentation("tshirt1", "T-Shirt", "L", "Red");
         String expected = "Red";
         String result = garment.getColour();

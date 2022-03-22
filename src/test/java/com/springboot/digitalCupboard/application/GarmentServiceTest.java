@@ -3,6 +3,7 @@ package com.springboot.digitalCupboard.application;
 import com.springboot.digitalCupboard.domain.Garment;
 import com.springboot.digitalCupboard.domain.GarmentRepository;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -25,7 +26,8 @@ class GarmentServiceTest {
     GarmentRepository mockRepository;
 
     @Test
-    void findAll() {
+    @DisplayName("Test Service.findAll")
+    void testFindAll() {
         Garment garment0 = new Garment("jeans1", "Jeans", "33/35", "Blue");
         Garment garment1 = new Garment("socks1", "Socks", "44-46", "Black");
         Garment garment2 = new Garment("tshirt1", "T-Shirt", "L", "Red");
@@ -39,7 +41,8 @@ class GarmentServiceTest {
     }
 
     @Test
-    void save() {
+    @DisplayName("Test Service.save")
+    void testSave() {
         Garment newGarment = new Garment("tshirt1", "T-Shirt", "L", "Red");
 
         lenient().when(mockRepository.findAll()).thenReturn(List.of(new Garment("tshirt2", "T-Shirt", "XL", "Green")));
@@ -52,7 +55,8 @@ class GarmentServiceTest {
     }
 
     @Test
-    void findById() {
+    @DisplayName("Test Service.findById")
+    void testFindById() {
         Garment garment = new Garment("tshirt1", "T-Shirt", "L", "Red");
 
         when(mockRepository.findById(garment.getId())).thenReturn(Optional.of(garment));
@@ -62,7 +66,8 @@ class GarmentServiceTest {
     }
 
     @Test
-    public void deleteByIdIsEmpty() {
+    @DisplayName("Test Service.deleteById if Id is empty")
+    public void testDeleteByIdIsEmpty() {
         Garment garment = new Garment("tshirt1", "T-Shirt", "L", "Red");
 
         when(mockRepository.findById(garment.getId())).thenReturn(Optional.empty());
@@ -72,6 +77,7 @@ class GarmentServiceTest {
     }
 
     @Test
+    @DisplayName("Test Service.deleteById if deletion is succesful")
     public void deleteByIdSuccess() {
         Garment garment = new Garment("tshirt1", "T-Shirt", "L", "Red");
 

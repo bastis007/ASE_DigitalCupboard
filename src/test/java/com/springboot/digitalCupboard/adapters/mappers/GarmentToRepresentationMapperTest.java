@@ -20,7 +20,7 @@ public class GarmentToRepresentationMapperTest {
 
     @Test
     @DisplayName("Garment to Representation Mapper simple Test")
-    public void applySuccessfully() {
+    public void testApplySuccessfully() {
         Garment garment = new Garment("tshirt1", "T-Shirt", "L", "Red");
 
         lenient().when(garmentToRepresentationMapper.apply(garment))

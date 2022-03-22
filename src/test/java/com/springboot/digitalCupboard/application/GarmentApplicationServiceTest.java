@@ -3,6 +3,7 @@ package com.springboot.digitalCupboard.application;
 import com.springboot.digitalCupboard.domain.Garment;
 import com.springboot.digitalCupboard.domain.GarmentRepository;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -25,7 +26,8 @@ class GarmentApplicationServiceTest {
     GarmentRepository mockRepository;
 
     @Test
-    void findAll() {
+    @DisplayName("Test ApplicationService.findAll")
+    void testFindAll() {
         Garment garment0 = new Garment("jeans1", "Jeans", "33/35", "Blue");
         Garment garment1 = new Garment("socks1", "Socks", "44-46", "Black");
         Garment garment2 = new Garment("tshirt1", "T-Shirt", "L", "Red");
@@ -39,7 +41,8 @@ class GarmentApplicationServiceTest {
     }
 
     @Test
-    void findById() {
+    @DisplayName("Test ApplicationService.findById")
+    void testFindById() {
         Garment garment = new Garment("tshirt1", "T-Shirt", "L", "Red");
 
         when(mockRepository.findById(garment.getId())).thenReturn(Optional.of(garment));
@@ -49,7 +52,8 @@ class GarmentApplicationServiceTest {
     }
 
     @Test
-    void save() {
+    @DisplayName("Test ApplicationService.save")
+    void testSave() {
         Garment newGarment = new Garment("tshirt1", "T-Shirt", "L", "Red");
 
         lenient().when(mockRepository.findAll()).thenReturn(List.of(new Garment("tshirt2", "T-Shirt", "XL", "Green")));
@@ -62,7 +66,8 @@ class GarmentApplicationServiceTest {
     }
 
     @Test
-    void deleteById() {
+    @DisplayName("Test ApplicationService.deleteById")
+    void testDeleteById() {
         Garment garment = new Garment("tshirt1", "T-Shirt", "L", "Red");
 
         lenient().when(mockRepository.findById(garment.getId())).thenReturn(Optional.of(garment));

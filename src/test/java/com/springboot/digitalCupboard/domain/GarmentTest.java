@@ -1,17 +1,14 @@
 package com.springboot.digitalCupboard.domain;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import com.springboot.digitalCupboard.domain.Garment;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 class GarmentTest {
 
     @Test
+    @DisplayName("Test toString-method")
     void testToString() {
         Garment garment = new Garment("tshirt1", "T-Shirt", "L", "Red");
         String expected = "Customer[id='" + garment.getId() + "', type='" + garment.getType() + "', size='" + garment.getSize() + "', colour='" + garment.getColour() + "']";
@@ -20,7 +17,8 @@ class GarmentTest {
     }
 
     @Test
-    void getId() {
+    @DisplayName("Test Getter(id)")
+    void testGetId() {
         Garment garment = new Garment("tshirt1", "T-Shirt", "L", "Red");
         String expected = "tshirt1";
         String result = garment.getId();
@@ -28,7 +26,8 @@ class GarmentTest {
     }
 
     @Test
-    void getType() {
+    @DisplayName("Test Getter(type)")
+    void testGetType() {
         Garment garment = new Garment("tshirt1", "T-Shirt", "L", "Red");
         String expected = "T-Shirt";
         String result = garment.getType();
@@ -36,7 +35,8 @@ class GarmentTest {
     }
 
     @Test
-    void getSize() {
+    @DisplayName("Test Getter(size)")
+    void testGetSize() {
         Garment garment = new Garment("tshirt1", "T-Shirt", "L", "Red");
         String expected = "L";
         String result = garment.getSize();
@@ -44,7 +44,8 @@ class GarmentTest {
     }
 
     @Test
-    void getColour() {
+    @DisplayName("Test Getter(colour)")
+    void testGetColour() {
         Garment garment = new Garment("tshirt1", "T-Shirt", "L", "Red");
         String expected = "Red";
         String result = garment.getColour();
@@ -52,7 +53,8 @@ class GarmentTest {
     }
 
     @Test
-    void setSize() {
+    @DisplayName("Test Setter(size)")
+    void testSetSize() {
         Garment garment = new Garment("tshirt1", "T-Shirt", "L", "Red");
         garment.setSize("XL");
         String expected = "XL";
@@ -61,7 +63,8 @@ class GarmentTest {
     }
 
     @Test
-    void setColour() {
+    @DisplayName("Test Setter(colour)")
+    void testSetColour() {
         Garment garment = new Garment("tshirt1", "T-Shirt", "L", "Red");
         garment.setColour("Green");
         String expected = "Green";

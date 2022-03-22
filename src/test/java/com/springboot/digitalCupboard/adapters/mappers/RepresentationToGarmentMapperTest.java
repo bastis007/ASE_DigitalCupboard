@@ -16,7 +16,7 @@ class RepresentationToGarmentMapperTest {
 
     @Test
     @DisplayName("Representation to Garment Mapper Test")
-    void apply() {
+    void testApply() {
         GarmentRepresentation given = new GarmentRepresentation("tshirt1", "T-Shirt", "L", "Red");
 
         Garment then = toBeTested.apply(given);
@@ -30,7 +30,7 @@ class RepresentationToGarmentMapperTest {
 
     @Test
     @DisplayName("Update old Garment with new GarmentRepresentation")
-    public void update() {
+    public void testUpdate() {
         Garment oldGarment = new Garment("tshirt1", "T-Shirt", "L", "Red");
         GarmentRepresentation newGarment = new GarmentRepresentation("tshirt1", "T-Shirt", "XL", "Green");
 
