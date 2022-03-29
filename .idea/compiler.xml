@@ -8,9 +8,22 @@
         <outputRelativeToContentRoot value="true" />
         <module name="DigitalCupboard" />
       </profile>
+      <profile name="Annotation profile for DigitalCupboard" enabled="true">
+        <sourceOutputDir name="../target/generated-sources/annotations" />
+        <sourceTestOutputDir name="../target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="adapters" />
+        <module name="application" />
+        <module name="plugins" />
+        <module name="domain" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="adapters" target="11" />
+      <module name="application" target="1.5" />
       <module name="DigitalCupboard" target="15" />
+      <module name="domain" target="1.5" />
+      <module name="plugins" target="1.5" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
