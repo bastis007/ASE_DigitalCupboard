@@ -6,9 +6,9 @@ import org.springframework.hateoas.config.EnableHypermediaSupport;
 public class GarmentRepresentation {
 
     private String id;
-    private String type;
-    private String size;
-    private String colour;
+    private final String type;
+    private final String size;
+    private final String colour;
 
     public GarmentRepresentation(String id, String type, String size, String colour) {
         this.id = id;

@@ -1,8 +1,5 @@
 package com.springboot.digitalCupboard.adapters;
 
-import com.springboot.digitalCupboard.domain.Garment;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

@@ -8,15 +8,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import java.io.IOException;
-
-
 @SpringBootApplication
 public class DigitalCupboardApplication {
 
-    //private static final Logger log = LoggerFactory.getLogger(DigitalCupboardApplication.class);
-
-    public static void main(String[] args) throws IOException, InterruptedException {
+    public static void main(String[] args){
         SpringApplication.run(DigitalCupboardApplication.class);
     }
 

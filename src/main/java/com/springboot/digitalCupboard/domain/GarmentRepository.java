@@ -11,5 +11,5 @@ public interface GarmentRepository {
 
     Optional<Garment> findById(String id);
 
-    Garment deleteById(String id);
+    void deleteById(String id);
 }

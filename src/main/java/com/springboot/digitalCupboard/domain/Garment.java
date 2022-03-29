@@ -11,13 +11,8 @@ public class Garment {
     private String type;
     private String size;
     private String colour;
-    /*@EmbeddedId
-    private GarmentId id;
-    @Embedded
-    private GarmentProperties properties;*/
 
     public Garment(String id, String type, String size, String colour) {
-        //this.properties = properties;
         this.id = id;
         this.type = type;
         this.size = size;
