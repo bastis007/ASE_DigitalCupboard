@@ -11,12 +11,12 @@
     </parent>
 
     <groupId>com.springboot</groupId>
-    <artifactId>DigitalCupboard</artifactId>
+    <artifactId>digitalCupboard</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>DigitalCupboard</name>
     <description>DigitalCupboard</description>
     <properties>
-        <start-class>com.springboot.cupboard.DigitalCupboardApplication</start-class>
+        <start-class>com.springboot.digitalCupboard.DigitalCupboardApplication</start-class>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>11</java.version>
     </properties>
