@@ -26,8 +26,8 @@ public class GarmentService {
                 .collect(Collectors.toList());
     }
 
-    public Garment save(Garment kategorie) {
-        return garmentRepository.save(kategorie);
+    public Garment save(Garment garment) {
+        return garmentRepository.save(garment);
     }
 
     public Optional<Garment> findById(String id) {
