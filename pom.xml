@@ -14,7 +14,7 @@
     <groupId>com.springboot</groupId>
     <artifactId>digitalCupboard</artifactId>
     <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.0.1-SNAPSHOT</version>
     <name>DigitalCupboard</name>
     <description>DigitalCupboard</description>
     <modules>
