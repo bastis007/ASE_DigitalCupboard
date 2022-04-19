@@ -8,18 +8,21 @@ public class Garment {
 
     @Id
     private String id;
-    private String type;
-    private String size;
-    private String colour;
+    @Embedded
+    private Type type;
+    @Embedded
+    private Size size;
+    @Embedded
+    private Colour colour;
 
-    public Garment(String id, String type, String size, String colour) {
+    public Garment(String id, Type type, Size size, Colour colour) {
         this.id = id;
         this.type = type;
         this.size = size;
         this.colour = colour;
     }
 
-    public Garment(String type, String size, String colour) {
+    public Garment(Type type, Size size, Colour colour) {
         this.id = UUID.randomUUID().toString();
         this.type = type;
         this.size = size;
@@ -32,23 +35,23 @@ public class Garment {
         return id;
     }
 
-    public String getType() {
+    public Type getType() {
         return type;
     }
 
-    public String getSize() {
+    public Size getSize() {
         return size;
     }
 
-    public String getColour() {
+    public Colour getColour() {
         return colour;
     }
 
-    public void setSize(String size) {
+    public void setSize(Size size) {
         this.size = size;
     }
 
-    public void setColour(String colour) {
+    public void setColour(Colour colour) {
         this.colour = colour;
     }
 

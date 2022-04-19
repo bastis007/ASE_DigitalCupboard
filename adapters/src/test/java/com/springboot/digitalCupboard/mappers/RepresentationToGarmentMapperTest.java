@@ -1,7 +1,11 @@
-package com.springboot.digitalCupboard.adapters.mappers;
+package com.springboot.digitalCupboard.mappers;
 
 import com.springboot.digitalCupboard.adapters.GarmentRepresentation;
+import com.springboot.digitalCupboard.adapters.mappers.RepresentationToGarmentMapper;
+import com.springboot.digitalCupboard.domain.Colour;
 import com.springboot.digitalCupboard.domain.Garment;
+import com.springboot.digitalCupboard.domain.Size;
+import com.springboot.digitalCupboard.domain.Type;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -31,7 +35,7 @@ class RepresentationToGarmentMapperTest {
     @Test
     @DisplayName("Update old Garment with new GarmentRepresentation")
     public void testUpdate() {
-        Garment oldGarment = new Garment("tshirt1", "T-Shirt", "L", "Red");
+        Garment oldGarment = new Garment("tshirt1", new Type("T-Shirt"), new Size("L"), new Colour("Red"));
         GarmentRepresentation newGarment = new GarmentRepresentation("tshirt1", "T-Shirt", "XL", "Green");
 
         Garment then = toBeTested.update(oldGarment, newGarment);

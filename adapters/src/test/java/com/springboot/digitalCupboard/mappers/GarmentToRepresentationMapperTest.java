@@ -1,7 +1,11 @@
-package com.springboot.digitalCupboard.adapters.mappers;
+package com.springboot.digitalCupboard.mappers;
 
 import com.springboot.digitalCupboard.adapters.GarmentRepresentation;
+import com.springboot.digitalCupboard.adapters.mappers.GarmentToRepresentationMapper;
+import com.springboot.digitalCupboard.domain.Colour;
 import com.springboot.digitalCupboard.domain.Garment;
+import com.springboot.digitalCupboard.domain.Size;
+import com.springboot.digitalCupboard.domain.Type;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -21,14 +25,14 @@ public class GarmentToRepresentationMapperTest {
     @Test
     @DisplayName("Garment to Representation Mapper simple Test")
     public void testApplySuccessfully() {
-        Garment garment = new Garment("tshirt1", "T-Shirt", "L", "Red");
+        Garment garment = new Garment("tshirt1", new Type("T-Shirt"), new Size("L"), new Colour("Red"));
 
         lenient().when(garmentToRepresentationMapper.apply(garment))
                 .thenReturn(new GarmentRepresentation(
                     garment.getId(),
-                    garment.getType(),
-                    garment.getSize(),
-                    garment.getColour()));
+                    garment.getType().toString(),
+                    garment.getSize().toString(),
+                    garment.getColour().toString()));
         GarmentRepresentation mapped = toBeTested.apply(garment);
 
         Assertions.assertNotNull(mapped);

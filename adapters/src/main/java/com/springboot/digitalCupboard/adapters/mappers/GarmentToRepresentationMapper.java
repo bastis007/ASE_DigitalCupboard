@@ -14,8 +14,8 @@ public class GarmentToRepresentationMapper implements Function<Garment, GarmentR
     public GarmentRepresentation apply(Garment garment) {
         return new GarmentRepresentation(
                 garment.getId(),
-                garment.getType(),
-                garment.getSize(),
-                garment.getColour());
+                garment.getType().toString(),
+                garment.getSize().toString(),
+                garment.getColour().toString());
     }
 }

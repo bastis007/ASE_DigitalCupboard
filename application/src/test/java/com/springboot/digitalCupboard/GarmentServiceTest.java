@@ -1,7 +1,7 @@
-package com.springboot.digitalCupboard.application;
+package com.springboot.digitalCupboard;
 
-import com.springboot.digitalCupboard.domain.Garment;
-import com.springboot.digitalCupboard.domain.GarmentRepository;
+import com.springboot.digitalCupboard.application.GarmentService;
+import com.springboot.digitalCupboard.domain.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -27,9 +27,9 @@ class GarmentServiceTest {
     @Test
     @DisplayName("Test Service.findAll")
     void testFindAll() {
-        Garment garment0 = new Garment("jeans1", "Jeans", "33/35", "Blue");
-        Garment garment1 = new Garment("socks1", "Socks", "44-46", "Black");
-        Garment garment2 = new Garment("tshirt1", "T-Shirt", "L", "Red");
+        Garment garment0 = new Garment("jeans1", new Type("Jeans"), new Size("33/35"), new Colour("Blue"));
+        Garment garment1 = new Garment("socks1", new Type("Socks"), new Size("44-46"), new Colour("Black"));
+        Garment garment2 = new Garment("tshirt1", new Type("T-Shirt"), new Size("L"), new Colour("Red"));
 
         when(mockRepository.findAll()).thenReturn(Arrays.asList(garment0, garment1, garment2));
         List<Garment> whenReturn = toBeTested.findAll();
@@ -42,9 +42,9 @@ class GarmentServiceTest {
     @Test
     @DisplayName("Test Service.save")
     void testSave() {
-        Garment newGarment = new Garment("tshirt1", "T-Shirt", "L", "Red");
+        Garment newGarment = new Garment("tshirt1", new Type("T-Shirt"), new Size("L"), new Colour("Red"));
 
-        lenient().when(mockRepository.findAll()).thenReturn(List.of(new Garment("tshirt2", "T-Shirt", "XL", "Green")));
+        lenient().when(mockRepository.findAll()).thenReturn(List.of(new Garment("tshirt1", new Type("T-Shirt"), new Size("XL"), new Colour("Green"))));
         lenient().when(mockRepository.save(newGarment)).thenReturn(newGarment);
         Garment returnVal = toBeTested.save(newGarment);
 
@@ -56,7 +56,7 @@ class GarmentServiceTest {
     @Test
     @DisplayName("Test Service.findById")
     void testFindById() {
-        Garment garment = new Garment("tshirt1", "T-Shirt", "L", "Red");
+        Garment garment = new Garment("tshirt1", new Type("T-Shirt"), new Size("L"), new Colour("Red"));
 
         when(mockRepository.findById(garment.getId())).thenReturn(Optional.of(garment));
         Optional<Garment> whenReturn = toBeTested.findById(garment.getId());
@@ -67,7 +67,7 @@ class GarmentServiceTest {
     @Test
     @DisplayName("Test Service.deleteById if Id is empty")
     public void testDeleteByIdIsEmpty() {
-        Garment garment = new Garment("tshirt1", "T-Shirt", "L", "Red");
+        Garment garment = new Garment("tshirt1", new Type("T-Shirt"), new Size("L"), new Colour("Red"));
 
         when(mockRepository.findById(garment.getId())).thenReturn(Optional.empty());
         toBeTested.deleteById(garment.getId());
@@ -78,7 +78,7 @@ class GarmentServiceTest {
     @Test
     @DisplayName("Test Service.deleteById if deletion is succesful")
     public void deleteByIdSuccess() {
-        Garment garment = new Garment("tshirt1", "T-Shirt", "L", "Red");
+        Garment garment = new Garment("tshirt1", new Type("T-Shirt"), new Size("L"), new Colour("Red"));
 
         when(mockRepository.findById(garment.getId())).thenReturn(Optional.of(garment));
         toBeTested.deleteById(garment.getId());

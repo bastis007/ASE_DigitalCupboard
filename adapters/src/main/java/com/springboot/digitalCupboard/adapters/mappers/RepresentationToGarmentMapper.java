@@ -2,6 +2,9 @@ package com.springboot.digitalCupboard.adapters.mappers;
 
 import java.util.function.Function;
 
+import com.springboot.digitalCupboard.domain.Colour;
+import com.springboot.digitalCupboard.domain.Size;
+import com.springboot.digitalCupboard.domain.Type;
 import org.springframework.stereotype.Component;
 
 import com.springboot.digitalCupboard.adapters.GarmentRepresentation;
@@ -14,17 +17,17 @@ public class RepresentationToGarmentMapper implements Function<GarmentRepresenta
     public Garment apply(GarmentRepresentation garmentRepresentation) {
         return new Garment(
                 garmentRepresentation.getId(),
-                garmentRepresentation.getType(),
-                garmentRepresentation.getSize(),
-                garmentRepresentation.getColour());
+                new Type(garmentRepresentation.getType()),
+                new Size(garmentRepresentation.getSize()),
+                new Colour(garmentRepresentation.getColour()));
     }
 
     public Garment update(Garment oldGarment, GarmentRepresentation newGarment) {
         return new Garment(
                 oldGarment.getId(),
                 oldGarment.getType(),
-                pickNewIfDefined(oldGarment.getSize(), newGarment.getSize()),
-                pickNewIfDefined(oldGarment.getColour(), newGarment.getColour()));
+                new Size(newGarment.getSize()),
+                new Colour(newGarment.getColour()));
     }
 
     private String pickNewIfDefined(String oldValue, String newValue) {

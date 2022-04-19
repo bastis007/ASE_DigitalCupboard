@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public class GarmentRepositoryBridge implements GarmentRepository {
+public class    GarmentRepositoryBridge implements GarmentRepository {
     private final SpringDataGarmentRepository springDataGarmentRepository;
 
     @Autowired
