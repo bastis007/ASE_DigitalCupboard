@@ -27,9 +27,9 @@ class RepresentationToGarmentMapperTest {
 
         Assertions.assertNotNull(then);
         Assertions.assertEquals("tshirt1", then.getId());
-        Assertions.assertEquals("T-Shirt", then.getType());
-        Assertions.assertEquals("L", then.getSize());
-        Assertions.assertEquals("Red", then.getColour());
+        Assertions.assertEquals(new Type("T-Shirt"), then.getType());
+        Assertions.assertEquals(new Size("L"), then.getSize());
+        Assertions.assertEquals(new Colour("Red"), then.getColour());
     }
 
     @Test
@@ -42,8 +42,8 @@ class RepresentationToGarmentMapperTest {
 
         Assertions.assertNotNull(then);
         Assertions.assertEquals("tshirt1", then.getId());
-        Assertions.assertEquals("T-Shirt", then.getType());
-        Assertions.assertEquals("XL", then.getSize());
-        Assertions.assertEquals("Green", then.getColour());
+        Assertions.assertEquals(new Type("T-Shirt"), then.getType());
+        Assertions.assertEquals(new Size("XL"), then.getSize());
+        Assertions.assertEquals(new Colour("Green"), then.getColour());
     }
 }

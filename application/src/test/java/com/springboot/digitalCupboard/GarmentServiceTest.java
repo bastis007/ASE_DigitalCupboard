@@ -49,8 +49,8 @@ class GarmentServiceTest {
         Garment returnVal = toBeTested.save(newGarment);
 
         Assertions.assertEquals("tshirt1", returnVal.getId());
-        Assertions.assertEquals("L", returnVal.getSize());
-        Assertions.assertEquals("Red", returnVal.getColour());
+        Assertions.assertEquals(new Size("L"), returnVal.getSize());
+        Assertions.assertEquals(new Colour("Red"), returnVal.getColour());
     }
 
     @Test

@@ -6,12 +6,14 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 import com.springboot.digitalCupboard.domain.Garment;
 import com.springboot.digitalCupboard.domain.GarmentRepository;
 
 @Service
+@Scope("singleton")
 public class GarmentService {
     private final GarmentRepository garmentRepository;
 

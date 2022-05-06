@@ -51,7 +51,7 @@ class GarmentTest {
     @DisplayName("Test Getter(colour)")
     void testGetColour() {
         Garment garment = new Garment("tshirt1", new Type("T-Shirt"), new Size("L"), new Colour("Red"));
-        String expected = "Red";
+        Colour expected = new Colour("Red");
         Colour result = garment.getColour();
         assertEquals(expected, result);
     }
@@ -71,7 +71,7 @@ class GarmentTest {
     void testSetColour() {
         Garment garment = new Garment("tshirt1", new Type("T-Shirt"), new Size("L"), new Colour("Red"));
         garment.setColour(new Colour("Green"));
-        String expected = "Green";
+        Colour expected = new Colour("Green");
         Colour result = garment.getColour();
         assertEquals(expected, result);
     }
